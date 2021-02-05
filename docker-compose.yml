@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  coreapi:
+    image: coreapi
+    container_name: coreapi
+    build: 
+      context: ./coreapi
+      dockerfile: ./Dockerfile
+    ports: 
+      - 5000:5000
+  pythonWeb:
+    image: pythonweb
+    container_name: pythonWeb
+    build:
+      context: ./pythonWeb
+      dockerfile: ./Dockerfile
+    ports: 
+      - 4000:4000
+  redis:
+    container_name: redis
+    image: "redis:alpine"
